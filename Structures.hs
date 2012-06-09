@@ -12,13 +12,20 @@
 --
 -----------------------------------------------------------------------------
 
-module Structures_new (
-
+module Structures (
+-- $Examples
 ) where
+
+-- $Examples
+-- * Examples of the AST
+-- Here are some examples of how the AST will look:
+-- ** Abilities
+-- [@Activated@]
+-- > Activated (Pay [QuantifiedObject ([], Mana B)], [Destroy (QuantifiedObject ([Reference Target], Permanent)))
 
 -- | A Quantified Object is an object with a list of quantifiers
 -- | attached to it.
-type QuantifiedObject        = ([Quantifier],    Object)
+data QuantifiedObject   = QuantifedObject ([Quantifier], Object)
     deriving (Show)
 
 -- | These are the quantifiers that can be attached to an object
@@ -26,21 +33,21 @@ data Quantifier     = Reference         Reference
                     | Count             Count
                     | Characteristic    Characteristic
                     | Status            Status
-                    | Timing            Timing
     deriving (Show)
 
 -- | These are the objects that can have quantifiers
 data Object         = Player            Player
                     | Ability           Ability
-                    | Phase             Phase
-                    | Turn              Turn
-                    | Step              Step
                     | Effect            Effect
+                    | Card
+                    | Permanent
+                    | Mana              Mana
+                    | Life
     deriving (Show)
 
 -- | These are the various characteristics
 data Characteristic = Name              String
-                    | Mana              Cost [Mana]
+--                    | Mana              Cost [Mana]
                     | Color             [Color]
                     | Typestring        [Type]
                     | Abilities         [Ability]
@@ -89,15 +96,16 @@ data Player         = Opponent
 -- | A quantified time is a way of representing when something should happen.
 -- | The Maybe monads take care of the case when any of those isn't specified.
 -- | The list can have nothing in it, in which case there isn't a Timing.
-data QuantifiedTime =
-     QuantifiedTime { times :: [Timing]
-                    , step  :: Maybe Step
-                    , phase :: Maybe Phase
-                    , turn  :: Maybe Turn
-                    }
-    deriving (Show)
+--data QuantifiedTime =
+--     QuantifiedTime { times :: [Timing]
+--                    , step  :: Maybe Step
+--                    , phase :: Maybe Phase
+--                    , turn  :: Maybe Turn
+--                    }
+--    deriving (Show)
 
---type QuantifiedTime = ([Timing], Maybe Step, Maybe Phase, Maybe Turn)
+data QuantifiedTime = QuantifedTime ([Timing], Maybe Step, Maybe Phase, Maybe Turn)
+    deriving (Show)
 
 -- | These are all of the phases of a turn
 data Phase          = Beginning
@@ -177,11 +185,11 @@ type Effects        = [Effect]
 -- | Effects are like the game's version of functions. They take parameters
 -- | and do something with them.
 -- | There are many effects in the game
-data Effect         = Pay                   QObject
-                    | ZoneChange            QObject Zone Zone
-                    | Destroy               QObject
-                    | Sacrifice             QObject
-                    | Dies                  QObject
+data Effect         = Pay                   [QuantifiedObject]
+                    | ZoneChange            QuantifiedObject Zone Zone
+                    | Destroy               QuantifiedObject
+                    | Sacrifice             QuantifiedObject
+                    | Dies                  QuantifiedObject
     deriving (Show)
 
 -- | This is the representation of conditional statements
@@ -202,7 +210,8 @@ type Cost           = Effect
 type Instructions   = [Instruction]
 
 -- | Not implemented yet
---data Instruction    =
+data Instruction    = Foo
+    deriving (Show)
 
 -- | All the possible types of mana, including a arbitrary numbers of generic mana.
 data Mana           = W  | U  | B  | R  | G  | X
