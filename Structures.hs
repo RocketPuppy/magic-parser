@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------
 --
--- Module      :  Structures_new
+-- Module      :  Structures
 -- Copyright   :
 -- License     :  AllRightsReserved
 --
