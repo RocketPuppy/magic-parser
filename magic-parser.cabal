@@ -8,11 +8,11 @@ maintainer: wilsonhardrock@gmail.com
 synopsis: Parser for card from the trading card game Magic: The Gathering
 author: Daniel Wilson
 data-dir: ""
- 
+
 library
     build-depends: base -any, parsec -any, pcre-light -any,
                    QuickCheck -any
     exposed: False
     buildable: True
-    other-modules: Structures2 Structures
- 
+    other-modules: Structures
+
