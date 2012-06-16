@@ -12,9 +12,7 @@
 --
 -----------------------------------------------------------------------------
 
-module Structures (
-
-) where
+module Structures where
 
 data Card = Card
     { abilities :: [Ability]
@@ -74,6 +72,8 @@ data Characteristic = Name              String
                     | Loyalty           Count
                     | Hand_Mod          Count
                     | Life_Mod          Count
+instance Eq Characteristic where
+    (==) (Typestring xs) (Typestring ys) = xs == ys
 instance PrettyPrint Characteristic where
     pp (Typestring (supers, cards, []))   = take ((length str) -1 ) (str)
         where str = concatMap (\x -> (pp x) ++ " ") supers ++ concatMap (\x -> (pp x) ++ " ") cards
@@ -110,6 +110,7 @@ data Count          = Digit Integer
                     | Only
                     | Single
                     | None
+    deriving (Show)
 
 -- | The possible zones
 data Zone           = Library
@@ -135,7 +136,7 @@ instance PrettyPrint Mana where
     pp x = "{" ++ show x ++ "}"
 
 data SuperType  = Basic | Legendary | Ongoing | Snow | World
-    deriving (Show)
+    deriving (Show, Enum, Read, Eq)
 instance PrettyPrint SuperType where
     pp x = show x
 
@@ -147,7 +148,7 @@ data CardType   = Artifact
                 | Planeswalker
                 | Sorcery
                 | Tribal
-    deriving (Show)
+    deriving (Show, Enum, Read, Eq)
 instance PrettyPrint CardType where
     pp ct = show ct
 
@@ -157,7 +158,8 @@ data SubType    = ArtifactType      ArtifactType
                 | LandType          LandType
                 | PlaneswalkerType  PlaneswalkerType
                 | CreatureType      CreatureType
-    deriving (Show)
+    deriving (Show, Eq)
+
 instance PrettyPrint SubType where
     pp (ArtifactType x)     = pp x
     pp (EnchantmentType x)  = pp x
@@ -167,30 +169,31 @@ instance PrettyPrint SubType where
     pp (CreatureType x)     = pp x
 
 data ArtifactType    = Contraption | Equipment | Fortification
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint ArtifactType where
     pp x = show x
 
 data EnchantmentType =  Aura | Curse | Shrine
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint EnchantmentType where
     pp x = show x
 
 data InstantType = Arcane | Trap
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint InstantType where
     pp x = show x
 
 data LandType = Desert | Forest | Island | Lair | Locus | Mine | Mountain
               | Plains | PowerPlant | Swamp | Tower | Urzas
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint LandType where
+    pp Urzas = "Urza's"
     pp x = show x
 
 data PlaneswalkerType   = Ajani | Bolas | Chandra | Elspeth | Garruk | Gideon | Jace
                         | Karn | Koth | Liliana | Nissa | Sarkhan | Sorin | Tezzeret
                         | Venser
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint PlaneswalkerType where
     pp x = show x
 
@@ -229,8 +232,9 @@ data CreatureType   = Advisor | Ally | Angel | Anteater | Antelope | Ape
                     | Viashino | Volver | Wall | Warrior | Weird | Werewolf | Whale
                     | Wizard | Wolf | Wolverine | Wombat | Worm | Wraith | Wurm
                     | Yeti | Zombie | Zubera
-    deriving (Show)
+    deriving (Show, Enum, Eq)
 instance PrettyPrint CreatureType where
+    pp AssemblyWorker = "Assembly-Worker"
     pp x = show x
 
 class PrettyPrint a where
