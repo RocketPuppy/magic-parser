@@ -747,293 +747,410 @@ creatureType =
                         )
                 )
         <|>
-        do  try (pluralize "nautilus") <|> string "nautilus"
-            return Nautilus
-        <|>
-        do  try (pluralize "nephilim") <|> string "nephilim"
-            return Nephilim
-        <|>
-        do  try (pluralize "nightmare") <|> string "nightmare"
-            return Nightmare
-        <|>
-        do  try (pluralize "nightstalker") <|> string "nightstalker"
-            return Nightstalker
-        <|>
-        do  try (pluralize "ninja") <|> string "ninja"
-            return Ninja
-        <|>
-        do  try (pluralize "noggle") <|> string "noggle"
-            return Noggle
-        <|>
-        do  try (pluralize "nomad") <|> string "nomad"
-            return Nomad
-        <|>
-        do  try (pluralize "octopus") <|> string "octopus"
-            return Octopus
-        <|>
-        do  try (pluralize "ogre") <|> string "ogre"
-            return Ogre
-        <|>
-        do  try (pluralize "ooze") <|> string "ooze"
-            return Ooze
-        <|>
-        do  try (pluralize "orb") <|> string "orb"
-            return Orb
-        <|>
-        do  try (pluralize "orc") <|> string "orc"
-            return Orc
-        <|>
-        do  try (pluralize "orgg") <|> string "orgg"
-            return Orgg
-        <|>
-        do  try (pluralize "ouphe") <|> string "ouphe"
-            return Ouphe
-        <|>
-        do  try (pluralize "ox") <|> string "ox"
-            return Ox
-        <|>
-        do  try (pluralize "oyster") <|> string "oyster"
-            return Oyster
-        <|>
-        do  try (pluralize "pegasus") <|> string "pegasus"
-            return Pegasus
-        <|>
-        do  try (pluralize "pentavite") <|> string "pentavite"
-            return Pentavite
-        <|>
-        do  try (pluralize "pest") <|> string "pest"
-            return Pest
-        <|>
-        do  try (pluralize "phelddagrif") <|> string "phelddagrif"
-            return Phelddagrif
-        <|>
-        do  try (pluralize "phoenix") <|> string "phoenix"
-            return Phoenix
-        <|>
-        do  try (pluralize "pincher") <|> string "pincher"
-            return Pincher
-        <|>
-        do  try (pluralize "pirate") <|> string "pirate"
-            return Pirate
-        <|>
-        do  try (pluralize "plant") <|> string "plant"
-            return Plant
-        <|>
-        do  try (pluralize "praetor") <|> string "praetor"
-            return Praetor
-        <|>
-        do  try (pluralize "prism") <|> string "prism"
-            return Prism
-        <|>
-        do  try (pluralize "rabbit") <|> string "rabbit"
-            return Rabbit
-        <|>
-        do  try (pluralize "rat") <|> string "rat"
-            return Rat
-        <|>
-        do  try (pluralize "rebel") <|> string "rebel"
-            return Rebel
-        <|>
-        do  try (pluralize "reflection") <|> string "reflection"
-            return Reflection
-        <|>
-        do  try (pluralize "rhino") <|> string "rhino"
-            return Rhino
-        <|>
-        do  try (pluralize "rigger") <|> string "rigger"
-            return Rigger
-        <|>
-        do  try (pluralize "rogue") <|> string "rogue"
-            return Rogue
-        <|>
-        do  try (pluralize "salamander") <|> string "salamander"
-            return Salamander
-        <|>
-        do  try (pluralize "samurai") <|> string "samurai"
-            return Samurai
-        <|>
-        do  try (pluralize "sand") <|> string "sand"
-            return Sand
-        <|>
-        do  try (pluralize "saproling") <|> string "saproling"
-            return Saproling
-        <|>
-        do  try (pluralize "satyr") <|> string "satyr"
-            return Satyr
-        <|>
-        do  try (pluralize "scarecrow") <|> string "scarecrow"
-            return Scarecrow
-        <|>
-        do  try (pluralize "scorpion") <|> string "scorpion"
-            return Scorpion
-        <|>
-        do  try (pluralize "scout") <|> string "scout"
-            return Scout
-        <|>
-        do  try (pluralize "serf") <|> string "serf"
-            return Serf
-        <|>
-        do  try (pluralize "serpent") <|> string "serpent"
-            return Serpent
-        <|>
-        do  try (pluralize "shade") <|> string "shade"
-            return Shade
-        <|>
-        do  try (pluralize "shaman") <|> string "shaman"
-            return Shaman
-        <|>
-        do  try (pluralize "shapeshifter") <|> string "shapeshifter"
-            return Shapeshifter
-        <|>
-        do  try (pluralize "sheep") <|> string "sheep"
-            return Sheep
-        <|>
-        do  try (pluralize "siren") <|> string "siren"
-            return Siren
-        <|>
-        do  try (pluralize "skeleton") <|> string "skeleton"
-            return Skeleton
-        <|>
-        do  try (pluralize "slith") <|> string "slith"
-            return Slith
-        <|>
-        do  try (pluralize "sliver") <|> string "sliver"
-            return Sliver
-        <|>
-        do  try (pluralize "slug") <|> string "slug"
-            return Slug
-        <|>
-        do  try (pluralize "snake") <|> string "snake"
-            return Snake
-        <|>
-        do  try (pluralize "soldier") <|> string "soldier"
-            return Soldier
-        <|>
-        do  try (pluralize "soltari") <|> string "soltari"
-            return Soltari
-        <|>
-        do  try (pluralize "spawn") <|> string "spawn"
-            return Spawn
-        <|>
-        do  try (pluralize "specter") <|> string "specter"
-            return Specter
-        <|>
-        do  try (pluralize "spellshaper") <|> string "spellshaper"
-            return Spellshaper
-        <|>
-        do  try (pluralize "sphinx") <|> string "sphinx"
-            return Sphinx
-        <|>
-        do  try (pluralize "spider") <|> string "spider"
-            return Spider
-        <|>
-        do  try (pluralize "spike") <|> string "spike"
-            return Spike
-        <|>
-        do  try (pluralize "spirit") <|> string "spirit"
-            return Spirit
-        <|>
-        do  try (pluralize "splinter") <|> string "splinter"
-            return Splinter
-        <|>
-        do  try (pluralize "sponge") <|> string "sponge"
-            return Sponge
-        <|>
-        do  try (pluralize "squid") <|> string "squid"
-            return Squid
-        <|>
-        do  try (pluralize "squirrel") <|> string "squirrel"
-            return Squirrel
-        <|>
-        do  try (pluralize "starfish") <|> string "starfish"
-            return Starfish
-        <|>
-        do  try (pluralize "surrakar") <|> string "surrakar"
-            return Surrakar
-        <|>
-        do  try (pluralize "survivor") <|> string "survivor"
-            return Survivor
-        <|>
-        do  try (pluralize "tetravite") <|> string "tetravite"
-            return Tetravite
-        <|>
-        do  try (pluralize "thalakos") <|> string "thalakos"
-            return Thalakos
-        <|>
-        do  try (pluralize "thopter") <|> string "thopter"
-            return Thopter
-        <|>
-        do  try (pluralize "thrull") <|> string "thrull"
-            return Thrull
-        <|>
-        do  try (pluralize "treefolk") <|> string "treefolk"
-            return Treefolk
-        <|>
-        do  try (pluralize "triskelavite") <|> string "triskelavite"
-            return Triskelavite
-        <|>
-        do  try (pluralize "troll") <|> string "troll"
-            return Troll
-        <|>
-        do  try (pluralize "turtle") <|> string "turtle"
-            return Turtle
+        do  try (char 'n')
+            try (
+                do  try (pluralize "autilus") <|> string "autilus"
+                    return Nautilus
+                <|>
+                do  try (pluralize "ephilim") <|> string "ephilim"
+                    return Nephilim
+                <|>
+                do  try (char 'i')
+                    try (
+                        do  try (string "ght")
+                            try (
+                                do  try (pluralize "mare") <|> string "mare"
+                                    return Nightmare
+                                <|>
+                                do  try (pluralize "stalker") <|> string "stalker"
+                                    return Nightstalker
+                                )
+                        <|>
+                        do  try (pluralize "nja") <|> string "nja"
+                            return Ninja
+                        )
+                <|>
+                do  try (char 'o')
+                    try (
+                        do  try (pluralize "ggle") <|> string "ggle"
+                            return Noggle
+                        <|>
+                        do  try (pluralize "mad") <|> string "mad"
+                            return Nomad
+                        )
+                )
+        <|>
+        do  try (char 'o')
+            try (
+                do  try (pluralize "ctopus") <|> string "ctopus"
+                    return Octopus
+                <|>
+                do  try (pluralize "gre") <|> string "gre"
+                    return Ogre
+                <|>
+                do  try (pluralize "oze") <|> string "oze"
+                    return Ooze
+                <|>
+                do  try (char 'r')
+                    try (
+                        do  try (pluralize "b") <|> string "b"
+                            return Orb
+                        <|>
+                        do  try (pluralize "c") <|> string "c"
+                            return Orc
+                        <|>
+                        do  try (pluralize "gg") <|> string "gg"
+                            return Orgg
+                        )
+                <|>
+                do  try (pluralize "uphe") <|> string "uphe"
+                    return Ouphe
+                <|>
+                do  try (pluralize "x") <|> string "x"
+                    return Ox
+                <|>
+                do  try (pluralize "yster") <|> string "yster"
+                    return Oyster
+                )
+        <|>
+        do  try (char 'p')
+            try (
+                do try (char 'e')
+                   try (
+                        do  try (pluralize "gasus") <|> string "gasus"
+                            return Pegasus
+                        <|>
+                        do  try (pluralize "ntavite") <|> string "ntavite"
+                            return Pentavite
+                        <|>
+                        do  try (pluralize "st") <|> string "st"
+                            return Pest
+                        )
+                <|>
+                do  try (char 'h')
+                    try (
+                        do  try (pluralize "elddagrif") <|> string "elddagrif"
+                            return Phelddagrif
+                        <|>
+                        do  try (pluralize "oenix") <|> string "oenix"
+                            return Phoenix
+                        )
+                <|>
+                do  try (char 'i')
+                    try (
+                        do  try (pluralize "ncher") <|> string "ncher"
+                            return Pincher
+                        <|>
+                        do  try (pluralize "rate") <|> string "rate"
+                            return Pirate
+                        )
+                <|>
+                do  try (pluralize "lant") <|> string "lant"
+                    return Plant
+                <|>
+                do  try (char 'r')
+                    try (
+                        do  try (pluralize "aetor") <|> string "aetor"
+                            return Praetor
+                        <|>
+                        do  try (pluralize "ism") <|> string "ism"
+                            return Prism
+                        )
+                )
+        <|>
+        do  try (char 'r')
+            try (
+                do  try (char 'a')
+                    try (
+                        do  try (pluralize "bbit") <|> string "bbit"
+                            return Rabbit
+                        <|>
+                        do  try (pluralize "t") <|> string "t"
+                            return Rat
+                        )
+                <|>
+                do  try (char 'e')
+                    try (
+                        do  try (pluralize "bel") <|> string "bel"
+                            return Rebel
+                        <|>
+                        do  try (pluralize "flection") <|> string "flection"
+                            return Reflection
+                        )
+                <|>
+                do  try (pluralize "hino") <|> string "hino"
+                    return Rhino
+                <|>
+                do  try (pluralize "igger") <|> string "igger"
+                    return Rigger
+                <|>
+                do  try (pluralize "ogue") <|> string "ogue"
+                    return Rogue
+                )
+        <|>
+        do  try (char 's')
+            try (
+                do  try (char 'a')
+                    try (
+                        do  try (pluralize "lamander") <|> string "lamander"
+                            return Salamander
+                        <|>
+                        do  try (pluralize "murai") <|> string "murai"
+                            return Samurai
+                        <|>
+                        do  try (pluralize "nd") <|> string "nd"
+                            return Sand
+                        <|>
+                        do  try (pluralize "proling") <|> string "proling"
+                            return Saproling
+                        <|>
+                        do  try (pluralize "tyr") <|> string "tyr"
+                            return Satyr
+                        )
+                <|>
+                do  try (char 'c')
+                    try (
+                        do  try (pluralize "arecrow") <|> string "arecrow"
+                            return Scarecrow
+                        <|>
+                        do  try (char 'o')
+                            try (
+                                do  try (pluralize "rpion") <|> string "rpion"
+                                    return Scorpion
+                                <|>
+                                do  try (pluralize "ut") <|> string "ut"
+                                    return Scout
+                                )
+                        )
+                <|>
+                do  try (string "er")
+                    try (
+                        do  try (pluralize "f") <|> string "f"
+                            return Serf
+                        <|>
+                        do  try (pluralize "pent") <|> string "pent"
+                            return Serpent
+                        )
+                <|>
+                do  try (char 'h')
+                    try (
+                        do  try (char 'a')
+                            try (
+                                do  try (pluralize "de") <|> string "de"
+                                    return Shade
+                                <|>
+                                do  try (pluralize "man") <|> string "man"
+                                    return Shaman
+                                <|>
+                                do  try (pluralize "peshifter") <|> string "peshifter"
+                                    return Shapeshifter
+                                )
+                        <|>
+                        do  try (pluralize "eep") <|> string "eep"
+                            return Sheep
+                        )
+                <|>
+                do  try (pluralize "iren") <|> string "iren"
+                    return Siren
+                <|>
+                do  try (pluralize "keleton") <|> string "keleton"
+                    return Skeleton
+                <|>
+                do  try (char 'l')
+                    try (
+                        do  try (char 'i')
+                            try (
+                                do  try (pluralize "th") <|> string "th"
+                                    return Slith
+                                <|>
+                                do  try (pluralize "ver") <|> string "ver"
+                                    return Sliver
+                                )
+                        <|>
+                        do  try (pluralize "ug") <|> string "ug"
+                            return Slug
+                        )
+                <|>
+                do  try (pluralize "nake") <|> string "nake"
+                    return Snake
+                <|>
+                do  try (string "ol")
+                    try (
+                        do  try (pluralize "dier") <|> string "dier"
+                            return Soldier
+                        <|>
+                        do  try (pluralize "tari") <|> string "tari"
+                            return Soltari
+                        )
+                <|>
+                do  try (char 'p')
+                    try (
+                        do  try (pluralize "awn") <|> string "awn"
+                            return Spawn
+                        <|>
+                        do  try (char 'e')
+                            try (
+                                do  try (pluralize "cter") <|> string "cter"
+                                    return Specter
+                                <|>
+                                do  try (pluralize "llshaper") <|> string "llshaper"
+                                    return Spellshaper
+                                )
+                        <|>
+                        do  try (pluralize "hinx") <|> string "hinx"
+                            return Sphinx
+                        <|>
+                        do  try (char 'i')
+                            try (
+                                do  try (pluralize "der") <|> string "der"
+                                    return Spider
+                                <|>
+                                do  try (pluralize "ke") <|> string "ke"
+                                    return Spike
+                                <|>
+                                do  try (pluralize "rit") <|> string "rit"
+                                    return Spirit
+                                )
+                        <|>
+                        do  try (pluralize "linter") <|> string "linter"
+                            return Splinter
+                        <|>
+                        do  try (pluralize "onge") <|> string "onge"
+                            return Sponge
+                        )
+                <|>
+                do  try (string "qui")
+                    try (
+                        do  try (pluralize "d") <|> string "d"
+                            return Squid
+                        <|>
+                        do  try (pluralize "rrel") <|> string "rrel"
+                            return Squirrel
+                        )
+                <|>
+                do  try (pluralize "tarfish") <|> string "tarfish"
+                    return Starfish
+                <|>
+                do  try (string "ur")
+                    try (
+                        do  try (pluralize "rakar") <|> string "rakar"
+                            return Surrakar
+                        <|>
+                        do  try (pluralize "vivor") <|> string "vivor"
+                            return Survivor
+                        )
+                )
+        <|>
+        do  try (char 't')
+            try (
+                do  try (pluralize "etravite") <|> string "etravite"
+                    return Tetravite
+                <|>
+                do  try (char 'h')
+                    try (
+                        do  try (pluralize "alakos") <|> string "alakos"
+                            return Thalakos
+                        <|>
+                        do  try (pluralize "opter") <|> string "opter"
+                            return Thopter
+                        <|>
+                        do  try (pluralize "rull") <|> string "rull"
+                            return Thrull
+                        )
+                <|>
+                do  try (char 'r')
+                    try (
+                        do  try (pluralize "eefolk") <|> string "eefolk"
+                            return Treefolk
+                        <|>
+                        do  try (pluralize "iskelavite") <|> string "iskelavite"
+                            return Triskelavite
+                        <|>
+                        do  try (pluralize "oll") <|> string "oll"
+                            return Troll
+                        )
+                <|>
+                do  try (pluralize "urtle") <|> string "urtle"
+                    return Turtle
+                )
         <|>
         do  try (pluralize "unicorn") <|> string "unicorn"
             return Unicorn
         <|>
-        do  try (pluralize "vampire") <|> string "vampire"
-            return Vampire
+        do  try (char 'v')
+            try (
+                do  try (pluralize "ampire") <|> string "ampire"
+                    return Vampire
+                <|>
+                do  try (pluralize "edalken") <|> string "edalken"
+                    return Vedalken
+                <|>
+                do  try (pluralize "iashino") <|> string "iashino"
+                    return Viashino
+                <|>
+                do  try (pluralize "olver") <|> string "olver"
+                    return Volver
+                )
         <|>
-        do  try (pluralize "vedalken") <|> string "vedalken"
-            return Vedalken
-        <|>
-        do  try (pluralize "viashino") <|> string "viashino"
-            return Viashino
-        <|>
-        do  try (pluralize "volver") <|> string "volver"
-            return Volver
-        <|>
-        do  try (pluralize "wall") <|> string "wall"
-            return Wall
-        <|>
-        do  try (pluralize "warrior") <|> string "warrior"
-            return Warrior
-        <|>
-        do  try (pluralize "weird") <|> string "weird"
-            return Weird
-        <|>
-        do  try (pluralize "werewolf") <|> string "werewolf"
-            return Werewolf
-        <|>
-        do  try (pluralize "whale") <|> string "whale"
-            return Whale
-        <|>
-        do  try (pluralize "wizard") <|> string "wizard"
-            return Wizard
-        <|>
-        do  try (pluralize "wolf") <|> string "wolf"
-            return Wolf
-        <|>
-        do  try (pluralize "wolverine") <|> string "wolverine"
-            return Wolverine
-        <|>
-        do  try (pluralize "wombat") <|> string "wombat"
-            return Wombat
-        <|>
-        do  try (pluralize "worm") <|> string "worm"
-            return Worm
-        <|>
-        do  try (pluralize "wraith") <|> string "wraith"
-            return Wraith
-        <|>
-        do  try (pluralize "wurm") <|> string "wurm"
-            return Wurm
+        do  try (char 'w')
+            try (
+                do  try (char 'a')
+                    try (
+                        do  try (pluralize "ll") <|> string "ll"
+                            return Wall
+                        <|>
+                        do  try (pluralize "rrior") <|> string "rrior"
+                            return Warrior
+                        )
+                <|>
+                do  try (char 'e')
+                    try (
+                        do  try (pluralize "ird") <|> string "ird"
+                            return Weird
+                        <|>
+                        do  try (pluralize "rewolf") <|> string "rewolf"
+                            return Werewolf
+                        )
+                <|>
+                do  try (pluralize "hale") <|> string "hale"
+                    return Whale
+                <|>
+                do  try (pluralize "izard") <|> string "izard"
+                    return Wizard
+                <|>
+                do  try (char 'o')
+                    try (
+                        do  try (char 'l')
+                            try (
+                                do  try (pluralize "f") <|> string "f"  --wolves not wolfs
+                                    return Wolf
+                                <|>
+                                do  try (pluralize "verine") <|> string "verine"
+                                    return Wolverine
+                                )
+                        <|>
+                        do  try (pluralize "mbat") <|> string "mbat"
+                            return Wombat
+                        <|>
+                        do  try (pluralize "rm") <|> string "rm"
+                            return Worm
+                        )
+                <|>
+                do  try (pluralize "raith") <|> string "raith"
+                    return Wraith
+                <|>
+                do  try (pluralize "urm") <|> string "urm"
+                    return Wurm
+                )
         <|>
         do  try (pluralize "yeti") <|> string "yeti"
             return Yeti
         <|>
-        do  try (pluralize "zombie") <|> string "zombie"
-            return Zombie
-        <|>
-        do  try (pluralize "zubera") <|> string "zubera"
-            return Zubera
+        do  try (char 'z')
+            try (
+                do  try (pluralize "ombie") <|> string "ombie"
+                    return Zombie
+                <|>
+                do  try (pluralize "ubera") <|> string "ubera"
+                    return Zubera
+                )
