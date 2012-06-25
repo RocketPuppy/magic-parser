@@ -30,7 +30,10 @@ parseSubType input = case (parse subType "" input') of
     where input' = map toLower input
 
 parseCardType :: String -> Either ParseError CardType
-parseCardType input = undefined
+parseCardType input = case (parse cardType "" input') of
+                            Left e -> Left e
+                            Right a -> Right a
+    where input' = map toLower input
 
 parseSuperType :: String -> Either ParseError SuperType
 parseSuperType input = case (parse superType "" input') of
@@ -75,7 +78,49 @@ parseCreatureType input = case (parse creatureType "" input') of
     where input' = map toLower input
 
 superType :: Parser SuperType
-superType = undefined
+superType =
+    do  spaces
+        do  try (pluralize "basic") <|> string "basic"
+            return Basic
+        <|>
+        do  try (pluralize "legendary") <|> string "legendary"
+            return Legendary
+        <|>
+        do  try (pluralize "ongoing") <|> string "ongoing"
+            return Ongoing
+        <|>
+        do  try (pluralize "snow") <|> string "snow"
+            return Snow
+        <|>
+        do  try (pluralize "world") <|> string "world"
+            return World
+
+cardType :: Parser CardType
+cardType =
+    do  spaces
+        do  try (pluralize "artifact") <|> string "artifact"
+            return Artifact
+        <|>
+        do  try (pluralize "creature") <|> string "creature"
+            return Creature
+        <|>
+        do  try (pluralize "enchantment") <|> string "enchantment"
+            return Enchantment
+        <|>
+        do  try (pluralize "instant") <|> string "instant"
+            return Instant
+        <|>
+        do  try (pluralize "land") <|> string "land"
+            return Land
+        <|>
+        do  try (pluralize "planeswalker") <|> string "planeswalker"
+            return Planeswalker
+        <|>
+        do  try (pluralize "sorcery") <|> string "sorcery"
+            return Sorcery
+        <|>
+        do  try (pluralize "tribal") <|> string "tribal"
+            return Tribal
 
 subType :: Parser SubType
 subType =

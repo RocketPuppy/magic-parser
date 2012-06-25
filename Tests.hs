@@ -122,8 +122,16 @@ prop_SuperType_ident st = case (parseSuperType (pp st)) of
 
 prop_SuperType_ident_plural :: SuperType -> Property
 prop_SuperType_ident_plural st = case (parseSuperType (pluralize_string (pp st))) of
-                            Left _ -> property False
-                            Right pt -> property (pt == st)
+                                    Left _ -> property False
+                                    Right pt -> property (pt == st)
+
+testTypeStringParts =
+    do  quickCheck prop_SubType_ident
+        quickCheck prop_CardType_ident
+        quickCheck prop_SuperType_ident
+        quickCheck prop_SubType_ident_plural
+        quickCheck prop_CardType_ident_plural
+        quickCheck prop_SuperType_ident_plural
 
 prop_Typestring_ident :: Characteristic -> Property
 prop_Typestring_ident ts = undefined --property (parse_Typestring (pp ts) == ts)
