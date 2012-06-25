@@ -152,6 +152,9 @@ data CardType   = Artifact
 instance PrettyPrint CardType where
     pp ct = show ct
 
+class SubTypeClass a where
+    toSubType :: a -> SubType
+
 data SubType    = ArtifactType      ArtifactType
                 | EnchantmentType   EnchantmentType
                 | InstantType       InstantType
@@ -159,7 +162,6 @@ data SubType    = ArtifactType      ArtifactType
                 | PlaneswalkerType  PlaneswalkerType
                 | CreatureType      CreatureType
     deriving (Show, Eq)
-
 instance PrettyPrint SubType where
     pp (ArtifactType x)     = pp x
     pp (EnchantmentType x)  = pp x
@@ -172,16 +174,22 @@ data ArtifactType    = Contraption | Equipment | Fortification
     deriving (Show, Enum, Eq)
 instance PrettyPrint ArtifactType where
     pp x = show x
+instance SubTypeClass ArtifactType where
+    toSubType x = ArtifactType x
 
 data EnchantmentType =  Aura | Curse | Shrine
     deriving (Show, Enum, Eq)
 instance PrettyPrint EnchantmentType where
     pp x = show x
+instance SubTypeClass EnchantmentType where
+    toSubType x = EnchantmentType x
 
 data InstantType = Arcane | Trap
     deriving (Show, Enum, Eq)
 instance PrettyPrint InstantType where
     pp x = show x
+instance SubTypeClass InstantType where
+    toSubType x = InstantType x
 
 data LandType = Desert | Forest | Island | Lair | Locus | Mine | Mountain
               | Plains | PowerPlant | Swamp | Tower | Urzas
@@ -189,6 +197,8 @@ data LandType = Desert | Forest | Island | Lair | Locus | Mine | Mountain
 instance PrettyPrint LandType where
     pp Urzas = "Urza's"
     pp x = show x
+instance SubTypeClass LandType where
+    toSubType x = LandType x
 
 data PlaneswalkerType   = Ajani | Bolas | Chandra | Elspeth | Garruk | Gideon | Jace
                         | Karn | Koth | Liliana | Nissa | Sarkhan | Sorin | Tezzeret
@@ -196,6 +206,8 @@ data PlaneswalkerType   = Ajani | Bolas | Chandra | Elspeth | Garruk | Gideon | 
     deriving (Show, Enum, Eq)
 instance PrettyPrint PlaneswalkerType where
     pp x = show x
+instance SubTypeClass PlaneswalkerType where
+    toSubType x = PlaneswalkerType x
 
 data CreatureType   = Advisor | Ally | Angel | Anteater | Antelope | Ape
                     | Archer | Archon | Artificer | Assassin | AssemblyWorker
@@ -236,6 +248,8 @@ data CreatureType   = Advisor | Ally | Angel | Anteater | Antelope | Ape
 instance PrettyPrint CreatureType where
     pp AssemblyWorker = "Assembly-Worker"
     pp x = show x
+instance SubTypeClass CreatureType where
+    toSubType x = CreatureType x
 
 class PrettyPrint a where
     pp :: a -> String

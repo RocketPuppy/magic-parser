@@ -95,9 +95,51 @@ testSubTypes =
         quickCheck prop_PlaneswalkerType_ident_plural
         quickCheck prop_CreatureType_ident_plural
 
+prop_SubType_ident :: SubType -> Property
+prop_SubType_ident st = case (parseSubType (pp st)) of 
+                            Left _ -> property False
+                            Right pt -> property (pt == st)
+
+prop_SubType_ident_plural :: SubType -> Property
+prop_SubType_ident_plural st = case (parseSubType (pluralize_string (pp st))) of 
+                                    Left _ -> property False
+                                    Right pt -> property (pt == st)
+
+prop_CardType_ident :: CardType -> Property
+prop_CardType_ident st = case (parseCardType (pp st)) of 
+                            Left _ -> property False
+                            Right pt -> property (pt == st)
+
+prop_CardType_ident_plural :: CardType -> Property
+prop_CardType_ident_plural st = case (parseCardType (pluralize_string (pp st))) of 
+                                    Left _ -> property False
+                                    Right pt -> property (pt == st)
+
+prop_SuperType_ident :: SuperType -> Property
+prop_SuperType_ident st = case (parseSuperType (pp st)) of
+                            Left _ -> property False
+                            Right pt -> property (pt == st)
+
+prop_SuperType_ident_plural :: SuperType -> Property
+prop_SuperType_ident_plural st = case (parseSuperType (pluralize_string (pp st))) of
+                            Left _ -> property False
+                            Right pt -> property (pt == st)
+
 prop_Typestring_ident :: Characteristic -> Property
 prop_Typestring_ident ts = undefined --property (parse_Typestring (pp ts) == ts)
 
+instance Arbitrary SuperType where
+    arbitrary = elements [Basic .. World]
+instance Arbitrary CardType where
+    arbitrary = elements [Artifact .. Tribal]
+instance Arbitrary SubType where
+    arbitrary = oneof [elements (map ArtifactType [Contraption .. Fortification])
+                      ,elements (map EnchantmentType [Aura .. Shrine])
+                      ,elements (map InstantType [Arcane .. Trap])
+                      ,elements (map LandType [Desert .. Urzas])
+                      ,elements (map PlaneswalkerType [Ajani .. Venser])
+                      ,elements (map CreatureType [Advisor .. Zubera])
+                      ]
 instance Arbitrary ArtifactType where
     arbitrary = elements [Contraption .. Fortification]
 instance Arbitrary EnchantmentType where

@@ -23,8 +23,20 @@ import Data.Char
 parse_Typestring :: String -> Characteristic
 parse_Typestring input = undefined
 
-parse_SubType :: String -> SubType
-parse_SubType input = undefined
+parseSubType :: String -> Either ParseError SubType
+parseSubType input = case (parse subType "" input') of
+                        Left e -> Left e
+                        Right a -> Right a
+    where input' = map toLower input
+
+parseCardType :: String -> Either ParseError CardType
+parseCardType input = undefined
+
+parseSuperType :: String -> Either ParseError SuperType
+parseSuperType input = case (parse superType "" input') of
+                            Left e -> Left e
+                            Right a -> Right a
+    where input' = map toLower input
 
 parseArtifactType :: String -> Either ParseError ArtifactType
 parseArtifactType input = case (parse artifactType "" input') of
@@ -61,6 +73,29 @@ parseCreatureType input = case (parse creatureType "" input') of
                         Left e -> Left e
                         Right a -> Right a
     where input' = map toLower input
+
+superType :: Parser SuperType
+superType = undefined
+
+subType :: Parser SubType
+subType =
+    do  do  t <- try artifactType
+            return (ArtifactType t)
+        <|>
+        do  t <- try enchantmentType
+            return (EnchantmentType t)
+        <|>
+        do  t <- try instantType
+            return (InstantType t)
+        <|>
+        do  t <- try landType
+            return (LandType t)
+        <|>
+        do  t <- try planeswalkerType
+            return (PlaneswalkerType t)
+        <|>
+        do  t <- try creatureType
+            return (CreatureType t)
 
 artifactType :: Parser ArtifactType
 artifactType =
